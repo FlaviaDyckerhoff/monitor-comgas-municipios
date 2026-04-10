@@ -1,0 +1,12 @@
+{
+  "name": "monitor-sabesp-municipios",
+  "version": "1.0.0",
+  "description": "Monitor automático de proposituras municipais com foco em SABESP/saneamento",
+  "main": "monitor.js",
+  "scripts": {
+    "start": "node monitor.js"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.9"
+  }
+}

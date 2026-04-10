@@ -1,0 +1,53 @@
+name: Monitor COMGÁS — VPS (Campinas, Carapicuíba, Osasco, SBC)
+
+on:
+  schedule:
+    - cron: '30 11 * * *'   # 08:30 BRT — 30min depois do principal
+    - cron: '30 15 * * *'   # 12:30 BRT
+    - cron: '30 20 * * *'   # 17:30 BRT
+    - cron: '30 0 * * *'    # 21:30 BRT
+  workflow_dispatch:
+
+jobs:
+  monitorar-vps:
+    runs-on: [self-hosted, linux]
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest (pega estado atualizado pelo job principal)
+        run: git pull origin main
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar monitor (apenas municípios VPS)
+        env:
+          EMAIL_REMETENTE: ${{ secrets.EMAIL_REMETENTE }}
+          EMAIL_SENHA: ${{ secrets.EMAIL_SENHA }}
+          EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
+          MUNICIPIOS_FILE: municipios-vps.json
+        run: node monitor.js
+
+      - name: Salvar estado atualizado no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git add estado.json
+          git stash
+          git pull --rebase origin main
+          git stash pop
+          git add estado.json
+          git diff --staged --quiet || git commit -m "chore: atualiza estado VPS [skip ci]"
+          git push

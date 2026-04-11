@@ -1,15 +1,21 @@
 [
- {
-  "nome": "Campinas",
-  "uf": "SP",
-  "sistema": "sapl",
-  "url_base": "https://sapl.campinas.sp.leg.br"
- },
- {
-  "nome": "São Bernardo do Campo",
-  "uf": "SP",
-  "sistema": "legisoft",
-  "url_base": "https://www.camarasbc.sp.gov.br",
-  "legisoft_tipo": "legislativo-2"
- }
+  {
+    "nome": "Campinas",
+    "uf": "SP",
+    "sistema": "sapl",
+    "url_base": "https://sapl.campinas.sp.leg.br"
+  },
+  {
+    "nome": "São Bernardo do Campo",
+    "uf": "SP",
+    "sistema": "legisoft",
+    "url_base": "https://www.camarasbc.sp.gov.br",
+    "legisoft_tipo": "legislativo-2"
+  },
+  {
+    "nome": "Jundiaí",
+    "uf": "SP",
+    "sistema": "sagl",
+    "url_base": "https://sapl.jundiai.sp.leg.br"
+  }
 ]

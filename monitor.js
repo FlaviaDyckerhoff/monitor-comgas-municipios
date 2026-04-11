@@ -164,7 +164,7 @@ async function enviarEmail(resultados, keywords, totalNovas) {
     <div style="font-family:Arial,sans-serif;max-width:960px;margin:0 auto;color:#222">
 
       <div style="background:#1a3a5c;color:white;padding:16px 20px;border-radius:4px 4px 0 0">
-        <h2 style="margin:0;font-size:18px">🏛️ Monitor SABESP — Proposituras Municipais</h2>
+        <h2 style="margin:0;font-size:18px">🏛️ Monitor COMGÁS — Proposituras Municipais</h2>
         <p style="margin:4px 0 0;font-size:12px;opacity:0.8">${new Date().toLocaleString('pt-BR')}</p>
       </div>
 
@@ -187,9 +187,9 @@ async function enviarEmail(resultados, keywords, totalNovas) {
   `;
 
   await transporter.sendMail({
-    from: `"Monitor SABESP" <${EMAIL_REMETENTE}>`,
+    from: `"Monitor COMGÁS" <${EMAIL_REMETENTE}>`,
     to: EMAIL_DESTINO,
-    subject: `🏛️ SABESP Monitor: ${totalNovas} nova(s) | ${nomesMunicipios} | ${new Date().toLocaleDateString('pt-BR')}`,
+    subject: `🏛️ COMGÁS Monitor: ${totalNovas} nova(s) | ${nomesMunicipios} | ${new Date().toLocaleDateString('pt-BR')}`,
     html,
   });
 
@@ -199,7 +199,7 @@ async function enviarEmail(resultados, keywords, totalNovas) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 (async () => {
-  console.log('🚀 Iniciando Monitor SABESP...');
+  console.log('🚀 Iniciando Monitor COMGAS...');
   console.log(`⏰ ${new Date().toLocaleString('pt-BR')}`);
 
   const estado = carregarEstado();

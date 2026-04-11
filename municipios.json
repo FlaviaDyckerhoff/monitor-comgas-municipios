@@ -17,13 +17,7 @@
   "sistema": "sapl",
   "url_base": "https://sapl.campinas.sp.leg.br"
  },
- {
-  "nome": "Jundiaí",
-  "uf": "SP",
-  "sistema": "sagl",
-  "url_base": "https://sapl.jundiai.sp.leg.br"
- },
- {
+  {
   "nome": "São Bernardo do Campo",
   "uf": "SP",
   "sistema": "legisoft",

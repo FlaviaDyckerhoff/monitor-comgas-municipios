@@ -35,5 +35,17 @@
     "uf": "SP",
     "sistema": "limeira",
     "url_base": "https://consulta.limeira.sp.leg.br"
+  },
+  {
+    "nome": "Cubatão",
+    "uf": "SP",
+    "sistema": "sapl",
+    "url_base": "http://sapl.cubatao.sp.leg.br"
+  },
+  {
+    "nome": "Cubatão",
+    "uf": "SP",
+    "sistema": "cubatao",
+    "url_base": "https://www.cubatao.sp.leg.br"
   }
 ]

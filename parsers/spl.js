@@ -101,7 +101,7 @@ async function buscar(municipio) {
 
     // Parar se a página não trouxe nenhum registro novo (loop de duplicatas)
     if (novasPagina === 0) break;
-    if (pagina * 100 >= total || resultados.length < 100 || pagina >= 20) break;
+    if (pagina * 100 >= total || resultados.length < 100 || pagina >= 100) break; // aumentado de 20→100 páginas
     pagina++;
     await new Promise(r => setTimeout(r, 1000));
   }

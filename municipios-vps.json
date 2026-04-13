@@ -6,10 +6,21 @@
     "url_base": "https://sapl.campinas.sp.leg.br"
   },
    {
-   "nome": "Jundiaí",
+  "nome": "Jundiaí",
   "uf": "SP",
   "sistema": "sagl",
   "url_base": "https://sapl.jundiai.sp.leg.br",
-  "tipo_ids": [1, 2, 3, 5, 6, 7, 8, 9, 11, 12]
-  }
+  "sagl_tipos": [
+    { "id": 1,  "nome": "Projeto de Lei" },
+    { "id": 2,  "nome": "Projeto de Resolução" },
+    { "id": 3,  "nome": "Requerimento à Presidência" },
+    { "id": 5,  "nome": "Projeto de Lei Complementar" },
+    { "id": 6,  "nome": "Projeto de Decreto Legislativo" },
+    { "id": 7,  "nome": "Moção" },
+    { "id": 8,  "nome": "Indicação" },
+    { "id": 9,  "nome": "Requerimento ao Plenário" },
+    { "id": 11, "nome": "Proposta de Emenda à Lei Orgânica" },
+    { "id": 12, "nome": "Veto" }
+  ]
+}
 ]

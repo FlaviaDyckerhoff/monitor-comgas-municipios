@@ -785,7 +785,32 @@
       "barueri-70617",
       "barueri-70689",
       "barueri-70724",
-      "barueri-70757"
+      "barueri-70757",
+      "barueri-70863",
+      "barueri-70864",
+      "barueri-70865",
+      "barueri-70866",
+      "barueri-70867",
+      "barueri-70868",
+      "barueri-70869",
+      "barueri-70870",
+      "barueri-70871",
+      "barueri-70872",
+      "barueri-70873",
+      "barueri-70874",
+      "barueri-70875",
+      "barueri-70876",
+      "barueri-70877",
+      "barueri-70879",
+      "barueri-70880",
+      "barueri-70881",
+      "barueri-70882",
+      "barueri-70883",
+      "barueri-70884",
+      "barueri-70885",
+      "barueri-70886",
+      "barueri-70887",
+      "barueri-70878"
     ],
     "Caçapava": [
       "caçapava-47546",
@@ -6089,7 +6114,25 @@
       "limeira-420791",
       "limeira-420790",
       "limeira-420788",
-      "limeira-420803"
+      "limeira-420803",
+      "limeira-420824",
+      "limeira-420832",
+      "limeira-420823",
+      "limeira-420822",
+      "limeira-420821",
+      "limeira-420820",
+      "limeira-420819",
+      "limeira-420818",
+      "limeira-420817",
+      "limeira-420816",
+      "limeira-420815",
+      "limeira-420814",
+      "limeira-420812",
+      "limeira-420811",
+      "limeira-420831",
+      "limeira-420829",
+      "limeira-420828",
+      "limeira-420805"
     ],
     "Cubatão": [
       "cubatão-31079",
@@ -7421,7 +7464,9 @@
       "sao-caetano-sul-233589",
       "sao-caetano-sul-229281",
       "sao-caetano-sul-169114",
-      "sao-caetano-sul-282304"
+      "sao-caetano-sul-282304",
+      "sao-caetano-sul-282309",
+      "sao-caetano-sul-282311"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -7471,5 +7516,5 @@
       "jacarei-PR-1-2026"
     ]
   },
-  "ultima_execucao": "2026-04-13T16:02:30.514Z"
+  "ultima_execucao": "2026-04-13T18:56:12.314Z"
 }

@@ -6,9 +6,10 @@
     "url_base": "https://sapl.campinas.sp.leg.br"
   },
    {
-    "nome": "Jundiaí",
-    "uf": "SP",
-    "sistema": "sagl",
-    "url_base": "https://sapl.jundiai.sp.leg.br"
+   "nome": "Jundiaí",
+  "uf": "SP",
+  "sistema": "sagl",
+  "url_base": "https://sapl.jundiai.sp.leg.br",
+  "tipo_ids": [1, 2, 3, 5, 6, 7, 8, 9, 11, 12]
   }
 ]

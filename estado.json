@@ -6084,7 +6084,12 @@
       "limeira-411009",
       "limeira-414035",
       "limeira-411002",
-      "limeira-416612"
+      "limeira-416612",
+      "limeira-420798",
+      "limeira-420791",
+      "limeira-420790",
+      "limeira-420788",
+      "limeira-420803"
     ],
     "Cubatão": [
       "cubatão-31079",
@@ -7415,7 +7420,8 @@
       "sao-caetano-sul-236629",
       "sao-caetano-sul-233589",
       "sao-caetano-sul-229281",
-      "sao-caetano-sul-169114"
+      "sao-caetano-sul-169114",
+      "sao-caetano-sul-282304"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -7465,5 +7471,5 @@
       "jacarei-PR-1-2026"
     ]
   },
-  "ultima_execucao": "2026-04-13T14:19:19.248Z"
+  "ultima_execucao": "2026-04-13T16:02:30.514Z"
 }

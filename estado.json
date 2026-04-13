@@ -810,7 +810,18 @@
       "barueri-70885",
       "barueri-70886",
       "barueri-70887",
-      "barueri-70878"
+      "barueri-70878",
+      "barueri-70897",
+      "barueri-70898",
+      "barueri-70888",
+      "barueri-70889",
+      "barueri-70890",
+      "barueri-70891",
+      "barueri-70892",
+      "barueri-70893",
+      "barueri-70894",
+      "barueri-70895",
+      "barueri-70896"
     ],
     "Caçapava": [
       "caçapava-47546",
@@ -6178,7 +6189,37 @@
       "limeira-420831",
       "limeira-420829",
       "limeira-420828",
-      "limeira-420805"
+      "limeira-420805",
+      "limeira-420947",
+      "limeira-420933",
+      "limeira-420946",
+      "limeira-420945",
+      "limeira-420942",
+      "limeira-420929",
+      "limeira-420925",
+      "limeira-420923",
+      "limeira-420887",
+      "limeira-420880",
+      "limeira-420879",
+      "limeira-420874",
+      "limeira-420873",
+      "limeira-420872",
+      "limeira-420870",
+      "limeira-420944",
+      "limeira-420943",
+      "limeira-420941",
+      "limeira-420940",
+      "limeira-420939",
+      "limeira-420938",
+      "limeira-420937",
+      "limeira-420936",
+      "limeira-420932",
+      "limeira-420928",
+      "limeira-420924",
+      "limeira-420922",
+      "limeira-420918",
+      "limeira-420917",
+      "limeira-420886"
     ],
     "Cubatão": [
       "cubatão-31079",
@@ -7512,7 +7553,15 @@
       "sao-caetano-sul-169114",
       "sao-caetano-sul-282304",
       "sao-caetano-sul-282309",
-      "sao-caetano-sul-282311"
+      "sao-caetano-sul-282311",
+      "sao-caetano-sul-282317",
+      "sao-caetano-sul-282318",
+      "sao-caetano-sul-282319",
+      "sao-caetano-sul-282320",
+      "sao-caetano-sul-282321",
+      "sao-caetano-sul-282322",
+      "sao-caetano-sul-282323",
+      "sao-caetano-sul-282324"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -7562,5 +7611,5 @@
       "jacarei-PR-1-2026"
     ]
   },
-  "ultima_execucao": "2026-04-13T19:52:54.697Z"
+  "ultima_execucao": "2026-04-13T22:33:22.685Z"
 }

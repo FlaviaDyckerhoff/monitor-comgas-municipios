@@ -53,5 +53,11 @@
     "uf": "SP",
     "sistema": "sao-caetano-sul",
     "url_base": "https://mlegislativo.mirasoft.com.br"
+  },
+  {
+    "nome": "Jacareí",
+    "uf": "SP",
+    "sistema": "jacarei",
+    "url_base": "https://www.jacarei.sp.leg.br"
   }
 ]

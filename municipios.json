@@ -47,5 +47,11 @@
     "uf": "SP",
     "sistema": "cubatao",
     "url_base": "https://www.cubatao.sp.leg.br"
+  },
+  {
+    "nome": "São Caetano do Sul",
+    "uf": "SP",
+    "sistema": "sao-caetano-sul",
+    "url_base": "https://mlegislativo.mirasoft.com.br"
   }
 ]

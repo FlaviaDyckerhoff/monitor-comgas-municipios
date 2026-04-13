@@ -8,7 +8,7 @@
 const TIPOS = [
   { nome: 'Projeto de Lei',                slug: 'pll',  prefix: 'PLL' },
   { nome: 'Projeto de Lei Complementar',   slug: 'plcl', prefix: 'PLCL' },
-  { nome: 'Projeto de Emenda à LOM',       slug: 'ple',  prefix: 'PLE' },
+  { nome: 'Projeto de Lei do Executivo', slug: 'ple', prefix: 'PLE' },
   { nome: 'Projeto de Decreto Legislativo',slug: 'pdl',  prefix: 'PDL' },
   { nome: 'Projeto de Resolução',          slug: 'pr',   prefix: 'PR' },
 ];

@@ -65,34 +65,24 @@ function parsearListagem(html, url_base, tipoNome, ano) {
   const props = [];
   const vistos = new Set();
 
-  // Links de detalhe: /Documentos/Documento/420635
-  const linkRegex = /href="(\/Documentos\/Documento\/(\d+))"/gi;
+  // Links de detalhe com title: <a href="/Documentos/Documento/420947" ... title="Projeto de Lei Nº 46/2026">
+  // Ignora documentos relacionados que têm " ao " no título (Análises Técnicas, Pareceres, Relatores)
+  const linkRegex = /href="(\/Documentos\/Documento\/(\d+))"[^>]*title="([^"]+)"/gi;
   let m;
 
   while ((m = linkRegex.exec(html)) !== null) {
     const href = m[1];
     const id_interno = m[2];
+    const titulo = m[3].trim();
+
+    // Ignora documentos relacionados (Análise Técnica, Parecer, Relator, etc.)
+    if (titulo.includes(' ao ')) continue;
 
     if (vistos.has(id_interno)) continue;
     vistos.add(id_interno);
 
-    const idx = m.index;
-    const bloco = html.substring(Math.max(0, idx - 200), idx + 500);
-
-    // Título: "Projeto de Lei Nº 43/2026"
-    const tituloMatch = bloco.match(/N[ºo°]\s*([\d]+\/\d{4})[^"]*"[^>]*>([^<]+)</i)
-      || bloco.match(/>([^<]*N[ºo°]\s*[\d]+\/\d{4}[^<]*)</i);
-
-    let numero = '';
-    let tipo = tipoNome;
-
-    if (tituloMatch) {
-      const textoCompleto = tituloMatch[0];
-      const numMatch = textoCompleto.match(/N[ºo°]\s*([\d]+\/\d{4})/i);
-      if (numMatch) numero = numMatch[1];
-      if (!numero.endsWith(`/${ano}`)) continue;
-    }
-
+    // Extrai número do título
+    const numMatch = titulo.match(/N[ºo°]\s*([\d]+\/\d{4})/i);
     // Data — dd/mm/aaaa
     const dataMatch = bloco.match(/(\d{2}\/\d{2}\/\d{4})/);
     const data = dataMatch ? dataMatch[1] : '-';

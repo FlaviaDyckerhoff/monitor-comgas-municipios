@@ -7952,7 +7952,11 @@
       "cubatão-32167",
       "cubatão-32168",
       "cubatão-32169",
-      "cubatão-32170"
+      "cubatão-32170",
+      "cubatão-32171",
+      "cubatão-32172",
+      "cubatão-32173",
+      "cubatão-32174"
     ],
     "São Caetano do Sul": [
       "sao-caetano-sul-282273",
@@ -8065,7 +8069,12 @@
       "sao-caetano-sul-282449",
       "sao-caetano-sul-282455",
       "sao-caetano-sul-282456",
-      "sao-caetano-sul-282457"
+      "sao-caetano-sul-282457",
+      "sao-caetano-sul-282466",
+      "sao-caetano-sul-282460",
+      "sao-caetano-sul-282461",
+      "sao-caetano-sul-282463",
+      "sao-caetano-sul-282464"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -8117,5 +8126,5 @@
       "jacarei-PLL-32-2026"
     ]
   },
-  "ultima_execucao": "2026-04-16T19:48:51.524Z"
+  "ultima_execucao": "2026-04-16T22:10:03.092Z"
 }

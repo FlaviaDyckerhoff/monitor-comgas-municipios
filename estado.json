@@ -1068,7 +1068,21 @@
       "caçapava-47563",
       "caçapava-47561",
       "caçapava-47558",
-      "caçapava-47555"
+      "caçapava-47555",
+      "caçapava-47673",
+      "caçapava-47671",
+      "caçapava-47666",
+      "caçapava-47660",
+      "caçapava-47657",
+      "caçapava-47656",
+      "caçapava-47644",
+      "caçapava-47642",
+      "caçapava-47640",
+      "caçapava-47623",
+      "caçapava-47622",
+      "caçapava-47614",
+      "caçapava-47600",
+      "caçapava-47568"
     ],
     "Campinas": [
       "campinas-455130",
@@ -8042,7 +8056,10 @@
       "sao-caetano-sul-282429",
       "sao-caetano-sul-282447",
       "sao-caetano-sul-282448",
-      "sao-caetano-sul-282449"
+      "sao-caetano-sul-282449",
+      "sao-caetano-sul-282455",
+      "sao-caetano-sul-282456",
+      "sao-caetano-sul-282457"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -8094,5 +8111,5 @@
       "jacarei-PLL-32-2026"
     ]
   },
-  "ultima_execucao": "2026-04-16T16:55:03.621Z"
+  "ultima_execucao": "2026-04-16T18:50:27.780Z"
 }

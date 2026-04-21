@@ -5,13 +5,7 @@
     "sistema": "sapl",
     "url_base": "https://sapl.barueri.sp.leg.br"
   },
-  {
-    "nome": "Caçapava",
-    "uf": "SP",
-    "sistema": "spl",
-    "url_base": "https://cacapava.splonline.com.br"
-  },
-   {
+     {
     "nome": "São Bernardo do Campo",
     "uf": "SP",
     "sistema": "legisoft",

@@ -881,7 +881,10 @@
       "barueri-70954",
       "barueri-70955",
       "barueri-70956",
-      "barueri-70958"
+      "barueri-70958",
+      "barueri-70959",
+      "barueri-70960",
+      "barueri-70961"
     ],
     "Campinas": [
       "campinas-455130",
@@ -9189,7 +9192,30 @@
       "cubatão-32279",
       "cubatão-32280",
       "cubatão-32281",
-      "cubatão-32282"
+      "cubatão-32282",
+      "cubatão-32283",
+      "cubatão-32284",
+      "cubatão-32285",
+      "cubatão-32286",
+      "cubatão-32287",
+      "cubatão-32288",
+      "cubatão-32289",
+      "cubatão-32290",
+      "cubatão-32291",
+      "cubatão-32292",
+      "cubatão-32293",
+      "cubatão-32294",
+      "cubatão-32295",
+      "cubatão-32296",
+      "cubatão-32297",
+      "cubatão-32298",
+      "cubatão-32299",
+      "cubatão-32300",
+      "cubatão-32301",
+      "cubatão-32302",
+      "cubatão-32303",
+      "cubatão-32304",
+      "cubatão-32305"
     ],
     "São Caetano do Sul": [
       "sao-caetano-sul-282273",
@@ -9401,5 +9427,5 @@
       "jacarei-PLE-14-2026"
     ]
   },
-  "ultima_execucao": "2026-04-23T18:18:53.968Z"
+  "ultima_execucao": "2026-04-23T22:12:24.588Z"
 }

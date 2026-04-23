@@ -874,7 +874,13 @@
       "barueri-70932",
       "barueri-70933",
       "barueri-70951",
-      "barueri-70934"
+      "barueri-70934",
+      "barueri-70957",
+      "barueri-70952",
+      "barueri-70953",
+      "barueri-70954",
+      "barueri-70955",
+      "barueri-70956"
     ],
     "Campinas": [
       "campinas-455130",
@@ -9381,5 +9387,5 @@
       "jacarei-PLE-14-2026"
     ]
   },
-  "ultima_execucao": "2026-04-22T22:34:53.600Z"
+  "ultima_execucao": "2026-04-23T06:30:01.745Z"
 }

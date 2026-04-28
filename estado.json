@@ -935,7 +935,10 @@
       "barueri-71009",
       "barueri-71010",
       "barueri-71011",
-      "barueri-71012"
+      "barueri-71012",
+      "barueri-71013",
+      "barueri-71014",
+      "barueri-71015"
     ],
     "Campinas": [
       "campinas-455130",
@@ -9475,7 +9478,9 @@
       "sao-caetano-sul-282710",
       "sao-caetano-sul-282726",
       "sao-caetano-sul-282734",
-      "sao-caetano-sul-282727"
+      "sao-caetano-sul-282727",
+      "sao-caetano-sul-282756",
+      "sao-caetano-sul-282757"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -9529,5 +9534,5 @@
       "jacarei-PLL-33-2026"
     ]
   },
-  "ultima_execucao": "2026-04-28T16:50:38.991Z"
+  "ultima_execucao": "2026-04-28T21:07:39.396Z"
 }

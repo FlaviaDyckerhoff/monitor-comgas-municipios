@@ -41,5 +41,30 @@
     "uf": "SP",
     "sistema": "jacarei",
     "url_base": "https://www.jacarei.sp.leg.br"
+  },
+  {
+    "nome": "Santo André",
+    "uf": "SP",
+    "sistema": "spl",
+    "url_base": "https://camarasempapel.cmsandre.sp.gov.br"
+  },
+  {
+    "nome": "Hortolândia",
+    "uf": "SP",
+    "sistema": "sagl",
+    "url_base": "https://sapl.hortolandia.sp.leg.br"
+  },
+  {
+    "nome": "Praia Grande",
+    "uf": "SP",
+    "sistema": "praia-grande",
+    "url_base": "https://www.praiagrande.sp.leg.br"
+  },
+  {
+    "nome": "Santos",
+    "uf": "SP",
+    "sistema": "backsite",
+    "url_base": "https://administrativo.camarasantos.sp.gov.br",
+    "backsite_path": "/dispositivo/customizado_publico/legislativo/busca_propositura_pub/"
   }
 ]

@@ -5,7 +5,7 @@
     "sistema": "sapl",
     "url_base": "https://sapl.barueri.sp.leg.br"
   },
-     {
+  {
     "nome": "São Bernardo do Campo",
     "uf": "SP",
     "sistema": "legisoft",
@@ -66,5 +66,17 @@
     "sistema": "backsite",
     "url_base": "https://administrativo.camarasantos.sp.gov.br",
     "backsite_path": "/dispositivo/customizado_publico/legislativo/busca_propositura_pub/"
+  },
+  {
+    "nome": "Santana de Parnaíba",
+    "uf": "SP",
+    "sistema": "santana-parnaiba",
+    "url_base": "http://camaraonline.org/cm_santana"
+  },
+  {
+    "nome": "Itatiba",
+    "uf": "SP",
+    "sistema": "itatiba",
+    "url_base": "https://siave.camaraitatiba.com.br"
   }
 ]

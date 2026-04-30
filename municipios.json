@@ -6,23 +6,10 @@
     "url_base": "https://sapl.barueri.sp.leg.br"
   },
   {
-    "nome": "São Bernardo do Campo",
-    "uf": "SP",
-    "sistema": "legisoft",
-    "url_base": "https://www.camarasbc.sp.gov.br",
-    "legisoft_tipo": "legislativo-2"
-  },
-  {
     "nome": "Limeira",
     "uf": "SP",
     "sistema": "limeira",
     "url_base": "https://consulta.limeira.sp.leg.br"
-  },
-  {
-    "nome": "Cubatão",
-    "uf": "SP",
-    "sistema": "sapl",
-    "url_base": "http://sapl.cubatao.sp.leg.br"
   },
   {
     "nome": "Cubatão",
@@ -68,15 +55,79 @@
     "backsite_path": "/dispositivo/customizado_publico/legislativo/busca_propositura_pub/"
   },
   {
-    "nome": "Santana de Parnaíba",
+    "nome": "Bragança Paulista",
     "uf": "SP",
-    "sistema": "santana-parnaiba",
-    "url_base": "http://camaraonline.org/cm_santana"
+    "sistema": "sino-siscam",
+    "url_base": "https://braganca.siscam.com.br",
+    "grupo_id": 3,
+    "tipo_ids": [5, 6, 2, 3, 4, 13]
+  },
+  {
+    "nome": "Paulínia",
+    "uf": "SP",
+    "sistema": "sino-siscam",
+    "url_base": "https://paulinia.siscam.com.br",
+    "siscam_id": 78,
+    "siscam_tipos": [
+      { "nome": "Projeto de Lei", "documento": 129 },
+      { "nome": "Projeto de Lei Complementar", "documento": 130 },
+      { "nome": "Projeto de Decreto Legislativo", "documento": 131 },
+      { "nome": "Projeto de Resolução", "documento": 132 },
+      { "nome": "Proposta de Emenda à Lei Orgânica", "documento": 133 },
+      { "nome": "Requerimento", "documento": 134 },
+      { "nome": "Indicação", "documento": 135 },
+      { "nome": "Moção", "documento": 136 }
+    ]
   },
   {
     "nome": "Itatiba",
     "uf": "SP",
-    "sistema": "itatiba",
-    "url_base": "https://siave.camaraitatiba.com.br"
+    "sistema": "sino-siscam",
+    "url_base": "https://siave.camaraitatiba.com.br",
+    "siscam_id": 80,
+    "siscam_tipos": [
+      { "nome": "Projeto de Lei", "documento": 134 },
+      { "nome": "Projeto de Lei Complementar", "documento": 135 },
+      { "nome": "Projeto de Decreto Legislativo", "documento": 136 },
+      { "nome": "Projeto de Resolução", "documento": 137 },
+      { "nome": "Proposta de Emenda à Lei Orgânica", "documento": 138 },
+      { "nome": "Requerimento", "documento": 139 },
+      { "nome": "Indicação", "documento": 140 },
+      { "nome": "Moção", "documento": 141 }
+    ]
+  },
+  {
+    "nome": "Itaquaquecetuba",
+    "uf": "SP",
+    "sistema": "sino-siscam",
+    "url_base": "https://itaquaquecetuba.siscam.com.br",
+    "siscam_id": 79,
+    "siscam_tipos": [
+      { "nome": "Projeto de Lei", "documento": 130 },
+      { "nome": "Projeto de Lei Complementar", "documento": 131 },
+      { "nome": "Projeto de Decreto Legislativo", "documento": 132 },
+      { "nome": "Projeto de Resolução", "documento": 133 },
+      { "nome": "Proposta de Emenda à Lei Orgânica", "documento": 134 },
+      { "nome": "Requerimento", "documento": 135 },
+      { "nome": "Indicação", "documento": 136 },
+      { "nome": "Moção", "documento": 137 }
+    ]
+  },
+  {
+    "nome": "Piracicaba",
+    "uf": "SP",
+    "sistema": "sino-siscam",
+    "url_base": "https://siave.camarapiracicaba.sp.gov.br",
+    "siscam_id": 78,
+    "siscam_tipos": [
+      { "nome": "Projeto de Lei", "documento": 129 },
+      { "nome": "Projeto de Lei Complementar", "documento": 130 },
+      { "nome": "Projeto de Decreto Legislativo", "documento": 131 },
+      { "nome": "Projeto de Resolução", "documento": 132 },
+      { "nome": "Proposta de Emenda à Lei Orgânica", "documento": 133 },
+      { "nome": "Requerimento", "documento": 134 },
+      { "nome": "Indicação", "documento": 135 },
+      { "nome": "Moção", "documento": 136 }
+    ]
   }
 ]

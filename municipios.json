@@ -6,6 +6,18 @@
     "url_base": "https://sapl.barueri.sp.leg.br"
   },
   {
+    "nome": "Limeira",
+    "uf": "SP",
+    "sistema": "limeira",
+    "url_base": "https://consulta.limeira.sp.leg.br"
+  },
+  {
+    "nome": "Cubatão",
+    "uf": "SP",
+    "sistema": "cubatao",
+    "url_base": "https://www.cubatao.sp.leg.br"
+  },
+  {
     "nome": "São Caetano do Sul",
     "uf": "SP",
     "sistema": "sao-caetano-sul",
@@ -218,6 +230,88 @@
       {
         "nome": "Moção",
         "documento": 136
+      }
+    ]
+  },
+  {
+    "nome": "Sumaré",
+    "uf": "SP",
+    "sistema": "sino-siscam",
+    "url_base": "https://sumare.siscam.com.br",
+    "siscam_id": 80,
+    "siscam_tipos": [
+      {
+        "nome": "Projeto de Lei",
+        "documento": 135
+      },
+      {
+        "nome": "Projeto de Lei Complementar",
+        "documento": 136
+      },
+      {
+        "nome": "Projeto de Decreto Legislativo",
+        "documento": 137
+      },
+      {
+        "nome": "Projeto de Resolução",
+        "documento": 138
+      },
+      {
+        "nome": "Proposta de Emenda à Lei Orgânica",
+        "documento": 139
+      },
+      {
+        "nome": "Indicação",
+        "documento": 140
+      },
+      {
+        "nome": "Requerimento",
+        "documento": 141
+      },
+      {
+        "nome": "Moção",
+        "documento": 142
+      }
+    ]
+  },
+  {
+    "nome": "Olímpia",
+    "uf": "SP",
+    "sistema": "sino-siscam",
+    "url_base": "https://olimpia.siscam.com.br",
+    "siscam_id": 80,
+    "siscam_tipos": [
+      {
+        "nome": "Projeto de Lei",
+        "documento": 136
+      },
+      {
+        "nome": "Projeto de Lei Complementar",
+        "documento": 137
+      },
+      {
+        "nome": "Projeto de Decreto Legislativo",
+        "documento": 138
+      },
+      {
+        "nome": "Projeto de Resolução",
+        "documento": 139
+      },
+      {
+        "nome": "Proposta de Emenda à Lei Orgânica",
+        "documento": 140
+      },
+      {
+        "nome": "Requerimento",
+        "documento": 141
+      },
+      {
+        "nome": "Indicação",
+        "documento": 142
+      },
+      {
+        "nome": "Moção",
+        "documento": 143
       }
     ]
   }

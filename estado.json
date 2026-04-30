@@ -944,7 +944,20 @@
       "barueri-71016",
       "barueri-71017",
       "barueri-71020",
-      "barueri-71021"
+      "barueri-71021",
+      "barueri-71022",
+      "barueri-71023",
+      "barueri-71024",
+      "barueri-71025",
+      "barueri-71026",
+      "barueri-71027",
+      "barueri-71028",
+      "barueri-71029",
+      "barueri-71030",
+      "barueri-71031",
+      "barueri-71032",
+      "barueri-71033",
+      "barueri-71034"
     ],
     "Campinas": [
       "campinas-455130",
@@ -9582,7 +9595,8 @@
       "sao-caetano-sul-282821",
       "sao-caetano-sul-282822",
       "sao-caetano-sul-282824",
-      "sao-caetano-sul-282825"
+      "sao-caetano-sul-282825",
+      "sao-caetano-sul-282891"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -11810,7 +11824,29 @@
       "hortolândia-81608",
       "hortolândia-81607",
       "hortolândia-81606",
-      "hortolândia-81605"
+      "hortolândia-81605",
+      "hortolândia-81644",
+      "hortolândia-81643",
+      "hortolândia-81642",
+      "hortolândia-81641",
+      "hortolândia-81640",
+      "hortolândia-81639",
+      "hortolândia-81638",
+      "hortolândia-81637",
+      "hortolândia-81636",
+      "hortolândia-81635",
+      "hortolândia-81634",
+      "hortolândia-81633",
+      "hortolândia-81632",
+      "hortolândia-81631",
+      "hortolândia-81630",
+      "hortolândia-81629",
+      "hortolândia-81628",
+      "hortolândia-81627",
+      "hortolândia-81626",
+      "hortolândia-81625",
+      "hortolândia-81624",
+      "hortolândia-81623"
     ],
     "Praia Grande": [
       "praia-grande-44093",
@@ -14556,5 +14592,5 @@
       "santos-281282"
     ]
   },
-  "ultima_execucao": "2026-04-30T12:09:14.650Z"
+  "ultima_execucao": "2026-04-30T16:19:07.041Z"
 }

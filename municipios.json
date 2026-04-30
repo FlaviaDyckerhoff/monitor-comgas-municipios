@@ -6,18 +6,6 @@
     "url_base": "https://sapl.barueri.sp.leg.br"
   },
   {
-    "nome": "Limeira",
-    "uf": "SP",
-    "sistema": "limeira",
-    "url_base": "https://consulta.limeira.sp.leg.br"
-  },
-  {
-    "nome": "Cubatão",
-    "uf": "SP",
-    "sistema": "cubatao",
-    "url_base": "https://www.cubatao.sp.leg.br"
-  },
-  {
     "nome": "São Caetano do Sul",
     "uf": "SP",
     "sistema": "sao-caetano-sul",

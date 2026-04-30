@@ -1,7 +1,20 @@
 // parsers/spl.js
 // Parser para câmaras que usam o sistema SPL (Ágape Consultoria)
 // API: GET /api/publico/proposicao/?pg=N&qtd=100&ano=AAAA
-// Testado em: Tremembé/SP, Santo André/SP, Caçapava/SP
+// Testado em: Tremembé/SP, Santo André/SP, Caçapava/SP, Taubaté/SP
+
+// Siglas de documentos derivados — não são proposituras originais
+const SIGLAS_IGNORAR = new Set([
+  'PC',   // Parecer da Comissão
+  'PAR',  // Parecer
+  'AUT',  // Autógrafo
+  'SUB',  // Substitutivo
+  'EMD',  // Emenda
+  'VET',  // Veto (opcional — remova se quiser monitorar vetos)
+  'DES',  // Despacho
+  'OF',   // Ofício
+  'NR',   // Nova Redação
+]);
 
 async function buscar(municipio) {
   const { url_base, nome } = municipio;
@@ -22,7 +35,7 @@ async function buscar(municipio) {
     });
 
     if (!response.ok) {
-      if (response.status === 500) break; // câmaras pequenas: fim normal de paginação
+      if (response.status === 500) break;
       console.error(`  [${nome}] Erro HTTP ${response.status}`);
       break;
     }
@@ -46,26 +59,26 @@ async function buscar(municipio) {
       const idRaw = p.Id || p.id || p.ProposicaoId || p.proposicaoId || p.Codigo || p.codigo;
       if (!idRaw) continue;
 
-      // Deduplicar — API pode repetir registros entre páginas
       if (idsVistos.has(String(idRaw))) continue;
       idsVistos.add(String(idRaw));
 
-      // Filtrar por ano — API pode ignorar o parâmetro ?ano=
       const anoP = String(p.Ano || p.ano || '');
       if (anoP && anoP !== String(ano)) continue;
+
+      // Filtrar documentos derivados por sigla
+      const sigla = (p.Sigla || p.sigla || '').toUpperCase();
+      if (SIGLAS_IGNORAR.has(sigla)) continue;
 
       novasPagina++;
 
       const id = `${nome.toLowerCase().replace(/\s+/g, '-')}-${idRaw}`;
 
-      const sigla = p.Sigla || p.sigla || '';
       const tipoDesc = p.Tipo || p.tipo || p.TipoDescricao || p.tipoDescricao || sigla || '-';
       const tipo = typeof tipoDesc === 'object' ? (tipoDesc.Descricao || tipoDesc.descricao || sigla) : tipoDesc;
 
       const numero = p.Numero || p.numero || '';
       const numeroAno = numero ? `${numero}/${anoP || ano}` : `${anoP || ano}`;
 
-      // Data — suporta ISO, /Date(...) e DD/MM/YYYY
       const dataRaw = p.Data || p.data || p.DataApresentacao || p.dataApresentacao
         || p.DataProtocolo || p.dataProtocolo || '';
       let data = '-';
@@ -78,7 +91,6 @@ async function buscar(municipio) {
         else if (msMatch) data = new Date(parseInt(msMatch[1])).toLocaleDateString('pt-BR');
       }
 
-      // Autor
       let autor = '-';
       const autoresRaw = p.Autores || p.autores || p.Autor || p.autor
         || p.AutorRequerenteDados;
@@ -99,9 +111,8 @@ async function buscar(municipio) {
       todas.push({ id, tipo, numero: numeroAno, data, autor, ementa, url: url_prop });
     }
 
-    // Parar se a página não trouxe nenhum registro novo (loop de duplicatas)
     if (novasPagina === 0) break;
-    if (pagina * 100 >= total || resultados.length < 100 || pagina >= 100) break; // aumentado de 20→100 páginas
+    if (pagina * 100 >= total || resultados.length < 100 || pagina >= 100) break;
     pagina++;
     await new Promise(r => setTimeout(r, 1000));
   }
@@ -110,4 +121,3 @@ async function buscar(municipio) {
 }
 
 module.exports = { buscar };
-

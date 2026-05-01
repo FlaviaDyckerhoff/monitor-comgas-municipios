@@ -8,7 +8,7 @@
 | Parser | SABESP | COMGÁS | Versão | Última atualização |
 |--------|--------|--------|--------|--------------------|
 | sapl.js | ✅ Campinas, Socorro | ✅ Campinas, Barueri, Jundiaí | 1.1 | 2026-04-09 |
-| spl.js | ✅ Santo André, Caçapava, Tremembé | ✅ Caçapava | 1.1 | 2026-04-09 |
+| spl.js | ✅ Santo André, Caçapava, Tremembé, SJC, Taubaté | ✅ Caçapava, SJC | 1.2 | 2026-05-01 |
 | legisoft.js | ✅ SBC | ✅ SBC | 1.2 | 2026-04-09 |
 | rdm.js | ✅ Osasco | ✅ Osasco (LAI) | 1.0 | 2026-04-06 |
 | sagl.js | ✅ Hortolândia | ✅ Jundiaí | 1.0 | 2026-04-06 |

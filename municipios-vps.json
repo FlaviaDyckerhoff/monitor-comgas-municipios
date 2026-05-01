@@ -59,5 +59,11 @@
     "sistema": "rdm",
     "url_base": "https://cmo.rdmsistemas.com.br",
     "rdm_api_base": "https://cmo.rdmsistemas.com.br"
+  },
+  {
+    "nome": "Guarulhos",
+    "uf": "SP",
+    "sistema": "guarulhos",
+    "url_base": "https://www.guarulhos.sp.leg.br"
   }
 ]

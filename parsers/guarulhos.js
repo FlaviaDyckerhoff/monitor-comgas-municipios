@@ -1,71 +1,66 @@
-'use strict';
-
 // parsers/guarulhos.js
-// Parser para Câmara Municipal de Guarulhos/SP
-// Sistema: Legisoft (Cloudflare) — acesso via microserviço Puppeteer local
-// Serviço: http://localhost:3002/proposicoes (guarulhos-service.js rodando no VPS)
+// Parser para a Câmara Municipal de Guarulhos/SP
+// Sistema: Legisoft com Cloudflare — acesso via microserviço Puppeteer local
+// Microserviço: http://localhost:3002/proposicoes
+// Tipos mapeados pelo Vini no legisoft.go
 
-const SERVICE_URL = 'http://localhost:3002/proposicoes';
+const SERVICO_URL = 'http://localhost:3002/proposicoes';
 
-const SUBTIPOS = [
-  'projeto-de-lei-20',
-  'projeto-de-decreto-legislativo-17',
-  'projeto-de-resolucao-21',
-  'projeto-de-emenda-a-lei-organica-18',
-  'requerimento-22',
-  'indicacao-12',
-  'mocao-13',
+const TIPOS = [
+  { nome: 'Projeto de Lei',                    subtipo: 'projeto-de-lei-20' },
+  { nome: 'Indicação',                          subtipo: 'indicacao-12' },
+  { nome: 'Requerimento',                       subtipo: 'requerimento-22' },
+  { nome: 'Moção',                              subtipo: 'mocao-13' },
+  { nome: 'Projeto de Decreto Legislativo',     subtipo: 'projeto-de-decreto-legislativo-17' },
+  { nome: 'Projeto de Resolução',               subtipo: 'projeto-de-resolucao-21' },
+  { nome: 'Projeto de Emenda à Lei Orgânica',   subtipo: 'projeto-de-emenda-a-lei-organica-18' },
 ];
 
-async function buscarSubtipo(subtipo, ano) {
-  const results = [];
-  let pagina = 1;
+async function buscar(municipio) {
+  const { nome } = municipio;
+  const ano = new Date().getFullYear();
+  const todas = [];
 
-  while (true) {
-    const url = `${SERVICE_URL}?subtipo=${subtipo}&ano=${ano}&pagina=${pagina}`;
-    let data;
-    try {
-      const res = await fetch(url, { signal: AbortSignal.timeout(90000) });
-      data = await res.json();
-    } catch (err) {
-      console.error(`[guarulhos] Erro subtipo=${subtipo} pagina=${pagina}: ${err.message}`);
-      break;
-    }
+  for (const tipo of TIPOS) {
+    console.log(`  [${nome}] Buscando ${tipo.nome} de ${ano}...`);
+    let pagina = 1;
 
-    if (!data.proposituras || data.proposituras.length === 0) break;
+    while (true) {
+      const url = `${SERVICO_URL}?subtipo=${tipo.subtipo}&ano=${ano}&pagina=${pagina}`;
 
-    for (const p of data.proposituras) {
-      results.push({
-        id:     p.id,
-        titulo: p.ementa || p.tipo,
-        ementa: p.ementa || '',
-        tipo:   p.tipo   || 'Propositura',
-        ano:    String(ano),
-        url:    p.url,
-      });
-    }
+      let response;
+      try {
+        response = await fetch(url, { signal: AbortSignal.timeout(90000) });
+      } catch (err) {
+        console.error(`  [${nome}] Erro ao chamar microserviço: ${err.message}`);
+        break;
+      }
 
-    if (!data.temProxima) break;
-    pagina++;
-    // Pequena pausa entre páginas para não sobrecarregar o Puppeteer
-    await new Promise(r => setTimeout(r, 2000));
-  }
+      if (!response.ok) {
+        console.error(`  [${nome}] Microserviço retornou ${response.status}`);
+        break;
+      }
 
-  return results;
-}
+      let json;
+      try {
+        json = await response.json();
+      } catch (err) {
+        console.error(`  [${nome}] Resposta inválida: ${err.message}`);
+        break;
+      }
 
-async function buscarProposicoes(municipio, ano) {
-  const todos = [];
+      const props = json.proposituras || [];
+      console.log(`  [${nome}] ${tipo.nome} p.${pagina} → ${props.length} itens`);
 
-  for (const subtipo of SUBTIPOS) {
-    const items = await buscarSubtipo(subtipo, ano);
-    todos.push(...items);
-    if (items.length > 0) {
-      console.log(`[guarulhos] ${subtipo}: ${items.length} proposituras`);
+      todas.push(...props);
+
+      if (!json.temProxima || props.length === 0 || pagina >= 50) break;
+      pagina++;
+      await new Promise(r => setTimeout(r, 2000));
     }
   }
 
-  return todos;
+  return todas;
 }
 
-module.exports = { buscarProposicoes };
+module.exports = { buscar };

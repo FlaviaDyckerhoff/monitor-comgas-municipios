@@ -261,11 +261,5 @@
         "documento": 142
       }
     ]
-  },
-  {
-    "nome": "Jundiaí",
-    "uf": "SP",
-    "sistema": "jundiai",
-    "url_base": "https://sapl.jundiai.sp.leg.br"
   }
 ]

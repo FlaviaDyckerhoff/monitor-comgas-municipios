@@ -261,5 +261,17 @@
         "documento": 142
       }
     ]
+  },
+  {
+    "nome": "Jundiaí",
+    "uf": "SP",
+    "sistema": "jundiai",
+    "url_base": "https://sapl.jundiai.sp.leg.br"
+  },
+  {
+    "nome": "Santana de Parnaíba",
+    "uf": "SP",
+    "sistema": "santana-parnaiba",
+    "url_base": "https://www.camarasantanadeparnaiba.sp.gov.br"
   }
 ]

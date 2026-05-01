@@ -1,121 +1,119 @@
-'use strict';
 // parsers/santana-parnaiba.js
-// Parser para Câmara Municipal de Santana de Parnaíba/SP
-// Sistema: camaraonline.org/cm_santana — form GET, HTML scraping
-// Busca projetos de lei e projetos de decreto legislativo/resolução separadamente
-// Endpoint: /projetos/resultado.php?type=0&fromYear=AAAA&toYear=AAAA&page=N
-//           /dec_res/resultado.php?type=0&fromYear=AAAA&toYear=AAAA&page=N
+// Parser para a Câmara Municipal de Santana de Parnaíba/SP
+// Sistema: HTML estático SSR — sem captcha, sem JS, fetch nativo
+// Monitora: /atos (Atos da Presidência) e /audiencias (Audiências Públicas)
+// Estrutura HTML: accordion por ano com <h3> para título e texto para ementa/data
 
-const URL_BASE = 'http://camaraonline.org/cm_santana';
+const BASE_URL = 'https://www.camarasantanadeparnaiba.sp.gov.br';
 
-// Extrai proposições de uma página HTML do resultado.php
-function parsePagina(html, urlBase) {
-  const results = [];
+const PAGINAS = [
+  { path: '/atos',       tipo: 'Ato da Presidência' },
+  { path: '/audiencias', tipo: 'Audiência Pública'   },
+];
 
-  // Cada proposição está em uma <table width='100%'>...</table>
-  // Campos: Documento (com data-link para PDF), Autor do projeto, Assunto
-  const tableRe = /<table width='100%'>([\s\S]*?)<\/table>/g;
-  let tableMatch;
+async function buscar(municipio) {
+  const { nome } = municipio;
+  const ano = new Date().getFullYear();
+  const todas = [];
 
-  while ((tableMatch = tableRe.exec(html)) !== null) {
-    const tbl = tableMatch[1];
+  for (const pagina of PAGINAS) {
+    const url = `${BASE_URL}${pagina.path}`;
+    console.log(`  [${nome}] Buscando ${pagina.tipo}...`);
 
-    // Documento: <a ... data-link='URL'>Texto</a>
-    const docMatch = tbl.match(/data-link='([^']+)'>([^<]+)<\/a>/);
-    if (!docMatch) continue;
-
-    const pdfUrl = docMatch[1].trim();
-    const titulo = docMatch[2].trim();
-
-    // Extrair tipo e número do título (ex: "Projeto de Lei Nº 117/2026")
-    const tipoNumMatch = titulo.match(/^(.+?)\s+[Nn]º?\s*([\d\/]+)$/);
-    const tipo = tipoNumMatch ? tipoNumMatch[1].trim() : titulo;
-    const numero = tipoNumMatch ? tipoNumMatch[2].trim() : '';
-
-    // Ano — pegar do número ou do link
-    let ano = '';
-    const anoNumMatch = numero.match(/\/(\d{4})$/);
-    if (anoNumMatch) {
-      ano = anoNumMatch[1];
-    } else {
-      const anoLinkMatch = pdfUrl.match(/\/(\d{4})\//);
-      if (anoLinkMatch) ano = anoLinkMatch[1];
+    let response;
+    try {
+      response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+          'Accept': 'text/html,application/xhtml+xml',
+          'Accept-Language': 'pt-BR,pt;q=0.9',
+        },
+        signal: AbortSignal.timeout(30000),
+      });
+    } catch (err) {
+      console.error(`  [${nome}] Erro de conexão: ${err.message}`);
+      continue;
     }
 
-    // Assunto/ementa
-    const ementaMatch = tbl.match(/<td style='font-size:small;text-align:justify'>([^<]+)<\/td>/);
-    const ementa = ementaMatch ? ementaMatch[1].trim() : '';
+    if (!response.ok) {
+      console.error(`  [${nome}] Erro HTTP ${response.status}`);
+      continue;
+    }
 
-    // ID único baseado no PDF URL (ex: PLE0117_2026)
-    const idMatch = pdfUrl.match(/\/([A-Z0-9_]+)\.pdf$/i);
-    const id = idMatch ? idMatch[1].toLowerCase() : titulo.replace(/\s+/g, '-').toLowerCase();
+    const html = await response.text();
+    const props = parsearHTML(html, pagina.tipo, ano, url);
+    console.log(`  [${nome}] ${pagina.tipo} → ${props.length} itens de ${ano}`);
+    todas.push(...props);
+  }
 
-    results.push({
-      id: `santana-parnaiba-${id}`,
-      titulo,
-      ementa,
-      tipo,
-      ano: parseInt(ano, 10) || null,
-      url: pdfUrl,
+  return todas;
+}
+
+function parsearHTML(html, tipoBase, ano, url_pagina) {
+  const proposituras = [];
+  const vistos = new Set();
+
+  // Localiza o bloco do ano atual no accordion
+  // Padrão: accordion-middle-AAAA seguido de conteúdo
+  const anoStr = String(ano);
+  // O accordion aparece 2x: no link href e no div id= com conteúdo real — usar a 2a ocorrência
+  const tag = `accordion-middle-${anoStr}`;
+  const idx1 = html.indexOf(tag);
+  if (idx1 === -1) return proposituras;
+  const idxAno = html.indexOf(tag, idx1 + 1);
+  if (idxAno === -1) return proposituras;
+
+  // Pega o bloco do ano até o próximo accordion ou fim
+  const idxProximo = html.indexOf('accordion-middle-', idxAno + 10);
+  const blocoAno = html.substring(idxAno, idxProximo > 0 ? idxProximo : idxAno + 50000);
+
+  // Cada item tem: <h3>Título nº NNN/AAAA</h3>\n\nDATA\n\nDescrição
+  // Regex captura: título do h3, seguido de data opcional e ementa
+  const itemRegex = /<h3[^>]*>([\s\S]*?)<\/h3>\s*([\s\S]*?)(?=<h3|<\/ul>|$)/gi;
+  let m;
+
+  while ((m = itemRegex.exec(blocoAno)) !== null) {
+    const tituloRaw = m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const resto = m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+    if (!tituloRaw || tituloRaw.length < 3) continue;
+
+    // Extrai número do título: "nº 008/2025" ou "Nº 008/2025"
+    const numMatch = tituloRaw.match(/n[ºo°]\s*(\d+\/\d{4})/i);
+    const numero = numMatch ? numMatch[1] : '';
+
+    // Filtra só itens do ano atual
+    if (numero && !numero.endsWith(`/${ano}`)) continue;
+
+    // Gera ID único
+    const idBase = numero
+      ? `santana-parnaiba-${tipoBase.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z-]/g, '')}-${numero.replace('/', '-')}`
+      : `santana-parnaiba-${tipoBase.toLowerCase().replace(/\s+/g, '-')}-${Buffer.from(tituloRaw).toString('base64').substring(0, 10)}`;
+
+    if (vistos.has(idBase)) continue;
+    vistos.add(idBase);
+
+    // Data — dd/mm/aaaa no texto restante
+    const dataMatch = resto.match(/(\d{2}\/\d{2}\/\d{4})/);
+    const data = dataMatch ? dataMatch[1] : '-';
+
+    // Ementa — remove a data do texto restante
+    const ementa = resto.replace(/\d{2}\/\d{2}\/\d{4}/, '').replace(/\s+/g, ' ').trim().substring(0, 400)
+      || tituloRaw;
+
+    proposituras.push({
+      id: idBase,
+      titulo: tituloRaw,
+      tipo: tipoBase,
+      numero: numero || '-',
+      data,
+      autor: '-',
+      ementa: ementa || tituloRaw,
+      url: url_pagina,
     });
   }
 
-  return results;
+  return proposituras;
 }
 
-// Busca todas as páginas de um sub-módulo (projetos ou dec_res)
-async function buscarModulo(modulo, ano) {
-  const results = [];
-  let pagina = 1;
-  const maxPaginas = 50;
-
-  while (pagina <= maxPaginas) {
-    const url = `${URL_BASE}/${modulo}/resultado.php?type=0&fromYear=${ano}&toYear=${ano}&page=${pagina}`;
-
-    let html;
-    try {
-      const res = await fetch(url, {
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; MonitorBot/1.0)' },
-      });
-      if (!res.ok) break;
-      html = await res.text();
-    } catch (e) {
-      console.error(`  [santana-parnaiba] Erro ao buscar ${url}: ${e.message}`);
-      break;
-    }
-
-    // Verificar se há resultados
-    if (!html.includes('resultado')) break;
-
-    const pagItems = parsePagina(html, URL_BASE);
-    if (pagItems.length === 0) break;
-
-    results.push(...pagItems);
-
-    // Verificar paginação via JS: totalPages: N
-    const totalPagesMatch = html.match(/totalPages:\s*(\d+)/);
-    const totalPages = totalPagesMatch ? parseInt(totalPagesMatch[1], 10) : 1;
-    if (pagina >= totalPages) break;
-
-    pagina++;
-    await new Promise(r => setTimeout(r, 500));
-  }
-
-  return results;
-}
-
-async function buscarProposicoes(municipio, ano) {
-  const results = [];
-
-  // Projetos de Lei e Lei Complementar
-  const projetos = await buscarModulo('projetos', ano);
-  results.push(...projetos);
-
-  // Projetos de Decreto Legislativo e Resolução
-  const decRes = await buscarModulo('dec_res', ano);
-  results.push(...decRes);
-
-  return results;
-}
-
-module.exports = { buscarProposicoes };
+module.exports = { buscar };

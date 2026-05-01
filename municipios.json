@@ -271,7 +271,7 @@
   {
     "nome": "Santana de Parnaíba",
     "uf": "SP",
-    "sistema": "santana-parnaiba",
-    "url_base": "https://www.camarasantanadeparnaiba.sp.gov.br"
+    "sistema": "spl",
+    "url_base": "https://sempapel.camarasantanadeparnaiba.sp.gov.br"
   }
 ]

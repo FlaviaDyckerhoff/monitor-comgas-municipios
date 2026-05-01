@@ -271,7 +271,13 @@
   {
     "nome": "Santana de Parnaíba",
     "uf": "SP",
-    "sistema": "santana-parnaiba",
+    "sistema": "spl",
     "url_base": "https://sempapel.camarasantanadeparnaiba.sp.gov.br"
+  },
+  {
+    "nome": "Mogi das Cruzes",
+    "uf": "SP",
+    "sistema": "mogi-das-cruzes",
+    "url_base": "http://www2.cmmc.com.br"
   }
 ]

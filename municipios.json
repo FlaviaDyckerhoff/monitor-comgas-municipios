@@ -302,11 +302,5 @@
         "documento": 143
       }
     ]
-  },
-  {
-    "nome": "Guarulhos",
-    "uf": "SP",
-    "sistema": "guarulhos",
-    "url_base": "https://www.guarulhos.sp.leg.br"
   }
 ]

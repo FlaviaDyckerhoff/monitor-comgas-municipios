@@ -261,5 +261,11 @@
         "documento": 142
       }
     ]
+  },
+  {
+    "nome": "São José dos Campos",
+    "uf": "SP",
+    "sistema": "spl",
+    "url_base": "https://camarasempapel.camarasjc.sp.gov.br"
   }
 ]

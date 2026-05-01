@@ -8,7 +8,7 @@
   {
     "nome": "Jundiaí",
     "uf": "SP",
-    "sistema": "sagl",
+    "sistema": "jundiai",
     "url_base": "https://sapl.jundiai.sp.leg.br",
     "sagl_tipos": [
       {

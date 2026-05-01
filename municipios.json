@@ -263,9 +263,9 @@
     ]
   },
   {
-    "nome": "São Paulo",
+    "nome": "Jundiaí",
     "uf": "SP",
-    "sistema": "saopaulo",
-    "url_base": "https://splegisws.saopaulo.sp.leg.br"
+    "sistema": "jundiai",
+    "url_base": "https://sapl.jundiai.sp.leg.br"
   }
 ]

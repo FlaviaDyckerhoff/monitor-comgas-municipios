@@ -267,5 +267,11 @@
     "uf": "SP",
     "sistema": "spl",
     "url_base": "https://camarasempapel.camarasjc.sp.gov.br"
+  },
+  {
+    "nome": "Guarulhos",
+    "uf": "SP",
+    "sistema": "guarulhos",
+    "url_base": "https://www.guarulhos.sp.leg.br"
   }
 ]

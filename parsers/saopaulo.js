@@ -33,14 +33,26 @@ async function buscar(municipio) {
 
   return lista
     .filter(p => TIPOS_MONITORADOS.has(p.tipo))
-    .map(p => ({
-      id:     `sp-${p.id || p.IdProposicao || p.numero}`,
-      titulo: `${p.tipo} ${p.numero}/${p.ano || ano}`,
-      ementa: p.ementa || p.Ementa || p.titulo || '',
-      tipo:   p.tipo,
-      ano:    String(p.ano || ano),
-      url:    p.url || `https://www.saopaulo.sp.leg.br/atividade-legislativa/proposicoes/?tipo=${p.tipo}&numero=${p.numero}&ano=${p.ano || ano}`,
-    }));
+    .map(p => {
+      const anoItem = p.ano || ano;
+      const numero  = p.numero ? `${p.numero}/${anoItem}` : '-';
+      // data: "2026-01-06T00:00:00" → "06/01/2026"
+      let data = '-';
+      if (p.data) {
+        const d = new Date(p.data);
+        if (!isNaN(d)) data = `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+      }
+      return {
+        id:     `sp-${p.chave || p.numero}`,
+        titulo: `${p.tipo} ${numero}`,
+        numero,
+        data,
+        ementa: (p.ementa || '').trim(),
+        tipo:   p.tipo,
+        ano:    String(anoItem),
+        url:    `https://www.saopaulo.sp.leg.br/atividade-legislativa/proposicoes/?tipo=${p.tipo}&numero=${p.numero}&ano=${anoItem}`,
+      };
+    });
 }
 
 module.exports = { buscar };

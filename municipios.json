@@ -263,47 +263,6 @@
     ]
   },
   {
-    "nome": "Olímpia",
-    "uf": "SP",
-    "sistema": "sino-siscam",
-    "url_base": "https://olimpia.siscam.com.br",
-    "siscam_id": 80,
-    "siscam_tipos": [
-      {
-        "nome": "Projeto de Lei",
-        "documento": 136
-      },
-      {
-        "nome": "Projeto de Lei Complementar",
-        "documento": 137
-      },
-      {
-        "nome": "Projeto de Decreto Legislativo",
-        "documento": 138
-      },
-      {
-        "nome": "Projeto de Resolução",
-        "documento": 139
-      },
-      {
-        "nome": "Proposta de Emenda à Lei Orgânica",
-        "documento": 140
-      },
-      {
-        "nome": "Requerimento",
-        "documento": 141
-      },
-      {
-        "nome": "Indicação",
-        "documento": 142
-      },
-      {
-        "nome": "Moção",
-        "documento": 143
-      }
-    ]
-  },
-  {
     "nome": "São Paulo",
     "uf": "SP",
     "sistema": "saopaulo",

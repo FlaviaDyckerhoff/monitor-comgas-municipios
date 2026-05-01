@@ -8,11 +8,11 @@
 | Parser | SABESP | COMGÁS | Versão | Última atualização |
 |--------|--------|--------|--------|--------------------|
 | sapl.js | ✅ Campinas, Socorro | ✅ Campinas, Barueri, Jundiaí | 1.1 | 2026-04-09 |
-| spl.js | ✅ Santo André, Caçapava, Tremembé, SJC, Taubaté | ✅ Caçapava, SJC | 1.2 | 2026-05-01 |
+| spl.js | ✅ Santo André, Caçapava, Tremembé, SJC, Taubaté, Santana de Parnaíba* | ✅ Caçapava, SJC, Santana de Parnaíba* | 1.2 | 2026-05-01 |
 | legisoft.js | ✅ SBC | ✅ SBC | 1.2 | 2026-04-09 |
 | rdm.js | ✅ Osasco | ✅ Osasco (LAI) | 1.0 | 2026-04-06 |
-| sagl.js | ✅ Hortolândia | ✅ Jundiaí | 1.0 | 2026-04-06 |
-| sino-siscam.js | ✅ Botucatu, Várzea Paulista, Bragança Paulista | — | 1.1 | 2026-04-09 |
+| sagl.js | ✅ Hortolândia | — | 1.0 | 2026-04-06 |
+| sino-siscam.js | ✅ Botucatu, Várzea Paulista, Bragança Paulista, Mauá, Itatiba, Itaquaquecetuba, Olímpia, Lins | ✅ Bragança Paulista, Paulínia, Itatiba, Itaquaquecetuba, Piracicaba, Sumaré | 1.1 | 2026-05-01 |
 | backsite.js | ✅ Santos | — | 1.1 | 2026-04-09 |
 | cajamar.js | ✅ Cajamar | — | 1.0 | 2026-04-06 |
 | carapicuiba.js | ✅ Carapicuíba | — | 1.0 | 2026-04-06 |

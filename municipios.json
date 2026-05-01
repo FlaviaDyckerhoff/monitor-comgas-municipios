@@ -302,5 +302,11 @@
         "documento": 143
       }
     ]
+  },
+  {
+    "nome": "São Paulo",
+    "uf": "SP",
+    "sistema": "saopaulo",
+    "url_base": "https://splegisws.saopaulo.sp.leg.br"
   }
 ]

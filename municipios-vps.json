@@ -65,5 +65,11 @@
     "uf": "SP",
     "sistema": "guarulhos",
     "url_base": "https://www.guarulhos.sp.leg.br"
+  },
+  {
+    "nome": "São Bernardo do Campo",
+    "uf": "SP",
+    "sistema": "sbc",
+    "url_base": "https://www.camarasbc.sp.gov.br"
   }
 ]

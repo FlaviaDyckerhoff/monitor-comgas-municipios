@@ -964,7 +964,20 @@
       "barueri-71038",
       "barueri-71039",
       "barueri-71040",
-      "barueri-71041"
+      "barueri-71041",
+      "barueri-71043",
+      "barueri-71044",
+      "barueri-71045",
+      "barueri-71046",
+      "barueri-71042",
+      "barueri-71047",
+      "barueri-71048",
+      "barueri-71049",
+      "barueri-71050",
+      "barueri-71051",
+      "barueri-71052",
+      "barueri-71053",
+      "barueri-71054"
     ],
     "Campinas": [
       "campinas-455130",
@@ -9618,7 +9631,11 @@
       "sao-caetano-sul-282941",
       "sao-caetano-sul-282945",
       "sao-caetano-sul-282987",
-      "sao-caetano-sul-282991"
+      "sao-caetano-sul-282991",
+      "sao-caetano-sul-282996",
+      "sao-caetano-sul-283000",
+      "sao-caetano-sul-282995",
+      "sao-caetano-sul-282997"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -9670,7 +9687,8 @@
       "jacarei-PLL-32-2026",
       "jacarei-PLE-14-2026",
       "jacarei-PLL-33-2026",
-      "jacarei-PLL-34-2026"
+      "jacarei-PLL-34-2026",
+      "jacarei-PLE-15-2026"
     ],
     "Hortolândia": [
       "hortolândia-81599",
@@ -11908,7 +11926,33 @@
       "hortolândia-81675",
       "hortolândia-81674",
       "hortolândia-81673",
-      "hortolândia-81672"
+      "hortolândia-81672",
+      "hortolândia-81710",
+      "hortolândia-81709",
+      "hortolândia-81708",
+      "hortolândia-81707",
+      "hortolândia-81706",
+      "hortolândia-81705",
+      "hortolândia-81704",
+      "hortolândia-81703",
+      "hortolândia-81702",
+      "hortolândia-81701",
+      "hortolândia-81700",
+      "hortolândia-81699",
+      "hortolândia-81698",
+      "hortolândia-81697",
+      "hortolândia-81696",
+      "hortolândia-81695",
+      "hortolândia-81694",
+      "hortolândia-81693",
+      "hortolândia-81692",
+      "hortolândia-81691",
+      "hortolândia-81690",
+      "hortolândia-81689",
+      "hortolândia-81688",
+      "hortolândia-81687",
+      "hortolândia-81686",
+      "hortolândia-81685"
     ],
     "Praia Grande": [
       "praia-grande-44093",
@@ -14553,7 +14597,8 @@
       "praia-grande-44254",
       "praia-grande-44253",
       "praia-grande-44252",
-      "praia-grande-44251"
+      "praia-grande-44251",
+      "praia-grande-44255"
     ],
     "Santos": [
       "santos-280843",
@@ -15081,7 +15126,9 @@
       "paulínia-160467",
       "paulínia-160461",
       "paulínia-160460",
-      "paulínia-160440"
+      "paulínia-160440",
+      "paulínia-160854",
+      "paulínia-160850"
     ],
     "Itatiba": [
       "itatiba-200875",
@@ -15157,7 +15204,10 @@
       "itatiba-200838",
       "itatiba-200811",
       "itatiba-200809",
-      "itatiba-200808"
+      "itatiba-200808",
+      "itatiba-201044",
+      "itatiba-201043",
+      "itatiba-201012"
     ],
     "Itaquaquecetuba": [
       "itaquaquecetuba-63346",
@@ -15349,7 +15399,18 @@
       "itaquaquecetuba-62256",
       "itaquaquecetuba-62321",
       "itaquaquecetuba-62322",
-      "itaquaquecetuba-62323"
+      "itaquaquecetuba-62323",
+      "itaquaquecetuba-63736",
+      "itaquaquecetuba-63735",
+      "itaquaquecetuba-63734",
+      "itaquaquecetuba-63733",
+      "itaquaquecetuba-63732",
+      "itaquaquecetuba-63731",
+      "itaquaquecetuba-63730",
+      "itaquaquecetuba-63729",
+      "itaquaquecetuba-63728",
+      "itaquaquecetuba-63727",
+      "itaquaquecetuba-63726"
     ],
     "Piracicaba": [
       "piracicaba-471380",
@@ -15556,7 +15617,38 @@
       "piracicaba-471584",
       "piracicaba-471583",
       "piracicaba-471582",
-      "piracicaba-471581"
+      "piracicaba-471581",
+      "piracicaba-471638",
+      "piracicaba-471630",
+      "piracicaba-471629",
+      "piracicaba-471628",
+      "piracicaba-471627",
+      "piracicaba-471625",
+      "piracicaba-471624",
+      "piracicaba-471623",
+      "piracicaba-471622",
+      "piracicaba-471620",
+      "piracicaba-471605",
+      "piracicaba-471604",
+      "piracicaba-471603",
+      "piracicaba-471602",
+      "piracicaba-471597",
+      "piracicaba-471595",
+      "piracicaba-471594",
+      "piracicaba-471639",
+      "piracicaba-471636",
+      "piracicaba-471631",
+      "piracicaba-471618",
+      "piracicaba-471616",
+      "piracicaba-471611",
+      "piracicaba-471609",
+      "piracicaba-471608",
+      "piracicaba-471606",
+      "piracicaba-471601",
+      "piracicaba-471637",
+      "piracicaba-471619",
+      "piracicaba-471614",
+      "piracicaba-471610"
     ],
     "Sumaré": [
       "sumaré-196428",
@@ -15627,7 +15719,24 @@
       "sumaré-195276",
       "sumaré-195126",
       "sumaré-194982",
-      "sumaré-196931"
+      "sumaré-196931",
+      "sumaré-196936",
+      "sumaré-197049",
+      "sumaré-197048",
+      "sumaré-197047",
+      "sumaré-197046",
+      "sumaré-197045",
+      "sumaré-197044",
+      "sumaré-197043",
+      "sumaré-197042",
+      "sumaré-197041",
+      "sumaré-197040",
+      "sumaré-197039",
+      "sumaré-197038",
+      "sumaré-197037",
+      "sumaré-197036",
+      "sumaré-197035",
+      "sumaré-196935"
     ],
     "Olímpia": [
       "olímpia-177527",
@@ -16938,5 +17047,5 @@
       "mogi-das-cruzes-45179"
     ]
   },
-  "ultima_execucao": "2026-05-04T12:19:54.934Z"
+  "ultima_execucao": "2026-05-04T16:32:57.521Z"
 }

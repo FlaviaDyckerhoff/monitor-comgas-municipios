@@ -92,8 +92,8 @@ function parsearHTML(html, url_base, tipoNome) {
       || bloco.match(/Nome[^:]*:\s*([^\n<]{3,60})/i);
     const autor = autorMatch ? autorMatch[1].replace(/<[^>]+>/g, '').trim() : '-';
 
-    // Ementa — dentro do collapse
-    const ementaMatch = bloco.match(/collapse[^>]*>([\s\S]{10,600}?)(?=Acompanhe|<\/div>|$)/i);
+    // Ementa — dentro do panel-body do collapse
+    const ementaMatch = bloco.match(/class="panel-body">\s*([\s\S]{10,600}?)\s*<\/div>/i);
     const ementa = ementaMatch
       ? ementaMatch[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
       : tipoNome;

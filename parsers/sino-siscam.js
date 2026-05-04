@@ -226,11 +226,21 @@ async function buscarEmenta(url_base, id, grupoId, endpoint) {
     });
     if (!response.ok) return '-';
     const html = await response.text();
-    const match = html.match(/<strong>Ementa:<\/strong>\s*([\s\S]{5,500}?)(?=<\/p>|<strong>)/i)
+    // Tenta <strong>Ementa:</strong> (endpoint legado)
+    const matchEmenta = html.match(/<strong>Ementa:<\/strong>\s*([\s\S]{5,500}?)(?=<\/p>|<strong>)/i)
       || html.match(/Ementa[^<]*<\/[^>]+>\s*([\s\S]{5,500}?)(?=<\/p>|<strong>)/i);
-    if (match) {
+    if (matchEmenta) {
       return decodificarEntities(
-        match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
+        matchEmenta[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
+      );
+    }
+    // Fallback: campo Assunto (endpoint novo — Mauá, Itatiba, etc.)
+    const matchAssunto = html.match(/Assunto:\s*<\/strong>\s*([\s\S]{5,500}?)(?=<\/p>|<strong>)/i)
+      || html.match(/<strong>Assunto:<\/strong>([^<]{5,500})/i)
+      || html.match(/<p[^>]*>\s*Assunto:\s*([^<]{10,400})/i);
+    if (matchAssunto) {
+      return decodificarEntities(
+        matchAssunto[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
       );
     }
     return '-';

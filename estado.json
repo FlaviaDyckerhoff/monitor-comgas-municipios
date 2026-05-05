@@ -1001,7 +1001,9 @@
       "barueri-71075",
       "barueri-71076",
       "barueri-71077",
-      "barueri-71078"
+      "barueri-71078",
+      "barueri-71079",
+      "barueri-71080"
     ],
     "Campinas": [
       "campinas-455130",
@@ -9666,7 +9668,10 @@
       "sao-caetano-sul-283014",
       "sao-caetano-sul-283015",
       "sao-caetano-sul-283016",
-      "sao-caetano-sul-283018"
+      "sao-caetano-sul-283018",
+      "sao-caetano-sul-283025",
+      "sao-caetano-sul-283040",
+      "sao-caetano-sul-283041"
     ],
     "Jacareí": [
       "jacarei-PLL-1-2026",
@@ -11983,7 +11988,10 @@
       "hortolândia-81688",
       "hortolândia-81687",
       "hortolândia-81686",
-      "hortolândia-81685"
+      "hortolândia-81685",
+      "hortolândia-81713",
+      "hortolândia-81712",
+      "hortolândia-81711"
     ],
     "Praia Grande": [
       "praia-grande-44093",
@@ -14629,7 +14637,8 @@
       "praia-grande-44253",
       "praia-grande-44252",
       "praia-grande-44251",
-      "praia-grande-44255"
+      "praia-grande-44255",
+      "praia-grande-44256"
     ],
     "Santos": [
       "santos-280843",
@@ -15475,7 +15484,9 @@
       "itaquaquecetuba-63781",
       "itaquaquecetuba-63780",
       "itaquaquecetuba-63779",
-      "itaquaquecetuba-63778"
+      "itaquaquecetuba-63778",
+      "itaquaquecetuba-63808",
+      "itaquaquecetuba-63724"
     ],
     "Piracicaba": [
       "piracicaba-471380",
@@ -15734,7 +15745,21 @@
       "piracicaba-471675",
       "piracicaba-471688",
       "piracicaba-471689",
-      "piracicaba-471709"
+      "piracicaba-471709",
+      "piracicaba-471741",
+      "piracicaba-471739",
+      "piracicaba-471760",
+      "piracicaba-471716",
+      "piracicaba-471765",
+      "piracicaba-471763",
+      "piracicaba-471761",
+      "piracicaba-471759",
+      "piracicaba-471758",
+      "piracicaba-471757",
+      "piracicaba-471756",
+      "piracicaba-471755",
+      "piracicaba-471754",
+      "piracicaba-471753"
     ],
     "Sumaré": [
       "sumaré-196428",
@@ -17160,8 +17185,10 @@
       "mogi-das-cruzes-45886",
       "mogi-das-cruzes-45885",
       "mogi-das-cruzes-45884",
-      "mogi-das-cruzes-45883"
+      "mogi-das-cruzes-45883",
+      "mogi-das-cruzes-45898",
+      "mogi-das-cruzes-45897"
     ]
   },
-  "ultima_execucao": "2026-05-05T11:57:10.663Z"
+  "ultima_execucao": "2026-05-05T16:25:32.621Z"
 }

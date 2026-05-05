@@ -38,7 +38,8 @@ async function buscar(municipio) {
       break;
     }
 
-    const html = await response.text();
+    const buf = await response.arrayBuffer();
+    const html = Buffer.from(buf).toString('latin1');
 
     // Extrai total de matérias e calcula páginas na primeira requisição
     if (totalPaginas === null) {
@@ -83,21 +84,31 @@ function parsearHTML(html, ano) {
     const idx = m.index;
     const bloco = html.substring(Math.max(0, idx - 100), idx + 1000);
 
-    // Tipo
-    const tipoMatch = bloco.match(/Tipo:\s*<\/strong>\s*([^\n<]{3,60})/i)
-      || bloco.match(/Tipo:\s*([^\n<]{3,60})/i);
-    const tipo = tipoMatch ? tipoMatch[1].replace(/<[^>]+>/g, '').trim() : '-';
-
-    // Número
-    const numMatch = bloco.match(/N[ºo°]?\s*([\d]+\/\d{4})/i);
+    // Tipo e Número — estão dentro do link <a>: "Indicações Nº 2424/2026"
+    const linkTextoMatch = bloco.match(/href="detalhes_materia\.php\?codigo=\d+"[^>]*>\s*([^\n<]{3,80}?)\s*<\/a>/i);
+    const linkTexto = linkTextoMatch ? linkTextoMatch[1].trim() : '';
+    const numMatch = linkTexto.match(/N[ºo°]?\s*([\d]+\/\d{4})/i);
     const numero = numMatch ? numMatch[1] : '-';
+    const tipoRaw = linkTexto.replace(/N[ºo°]?\s*[\d]+\/\d{4}/i, '').trim();
+    const tipo = tipoRaw || '-';
 
-    // Data
-    const dataMatch = bloco.match(/(\d{2}\/\d{2}\/\d{4})/);
-    const data = dataMatch ? dataMatch[1] : '-';
+    // Data — formato "30 de Abril de 2026"
+    const MESES = {janeiro:'01',fevereiro:'02',março:'03',abril:'04',maio:'05',junho:'06',
+                   julho:'07',agosto:'08',setembro:'09',outubro:'10',novembro:'11',dezembro:'12'};
+    const dataExtensoMatch = bloco.match(/Data[^:]*:\s*<\/b>\s*(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})/i);
+    let data = '-';
+    if (dataExtensoMatch) {
+      const dia = dataExtensoMatch[1].padStart(2,'0');
+      const mes = MESES[dataExtensoMatch[2].toLowerCase()] || '00';
+      const ano2 = dataExtensoMatch[3];
+      data = `${dia}/${mes}/${ano2}`;
+    } else {
+      const dataNumMatch = bloco.match(/(\d{2}\/\d{2}\/\d{4})/);
+      if (dataNumMatch) data = dataNumMatch[1];
+    }
 
     // Autor
-    const autorMatch = bloco.match(/Autor:\s*<\/strong>\s*([^\n<]{3,80})/i)
+    const autorMatch = bloco.match(/Autor:\s*<\/b>\s*([^\n<]{3,80})/i)
       || bloco.match(/Autor:\s*([^\n<]{3,80})/i);
     const autor = autorMatch ? autorMatch[1].replace(/<[^>]+>/g, '').trim() : '-';
 
@@ -128,19 +139,11 @@ async function buscarEmenta(codigo) {
     if (!response.ok) return '-';
 
     const buf = await response.arrayBuffer();
-    // Página pode ser Latin-1
-    let html;
-    try {
-      html = new TextDecoder('utf-8').decode(buf);
-    } catch {
-      html = new TextDecoder('latin1').decode(buf);
-    }
+    const html = Buffer.from(buf).toString('latin1');
 
-    // Ementa está em <span class="align-middle h-auto">TEXTO</span>
-    // dentro de <div class="form-control-static"> após <p class="control-label">Ementa</p>
-    const match = html.match(/align-middle[^>]*>([\s\S]{5,500}?)<\/span>/i)
-      || html.match(/form-control-static[^>]*>[\s\S]{0,100}?<span[^>]*>([\s\S]{5,500}?)<\/span>/i)
-      || html.match(/Ementa<\/p>[\s\S]{0,300}?<span[^>]*>([\s\S]{5,500}?)<\/span>/i);
+    // Ementa: dentro de form-control-static, após label "Ementa"
+    const match = html.match(/Ementa<\/p>[\s\S]{0,300}?form-control-static[^>]*>[\s\S]{0,100}?<span[^>]*>([\s\S]{5,500}?)<\/span>/i)
+      || html.match(/form-control-static[^>]*>[\s\S]{0,100}?<span[^>]*>([\s\S]{20,500}?)<\/span>/i);
 
     if (match) {
       return match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400);

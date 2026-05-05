@@ -210,7 +210,7 @@ function parsearHTMLLegado(html, url_base, nome) {
 }
 
 // Busca ementa na página de detalhe
-async function buscarEmenta(url_base, id, grupoId, endpoint) {
+async function buscarEmentaEData(url_base, id, grupoId, endpoint) {
   let url;
   if (endpoint === 'novo') {
     url = `${url_base}/Documentos/Documento/${id}`;
@@ -224,36 +224,55 @@ async function buscarEmenta(url_base, id, grupoId, endpoint) {
     const response = await fetch(url, {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; MonitorBot/1.0)' }
     });
-    if (!response.ok) return '-';
+    if (!response.ok) return { ementa: '-', data: null };
     const html = await response.text();
+
+    // Buscar data: <strong>Data:</strong> DD/MM/YYYY
+    let data = null;
+    const matchData = html.match(/<strong>Data:<\/strong>\s*(\d{2}\/\d{2}\/\d{4})/i);
+    if (matchData) data = matchData[1];
+
     // Tenta <strong>Ementa:</strong> (endpoint legado)
     const matchEmenta = html.match(/<strong>Ementa:<\/strong>\s*([\s\S]{5,500}?)(?=<\/p>|<strong>)/i)
       || html.match(/Ementa[^<]*<\/[^>]+>\s*([\s\S]{5,500}?)(?=<\/p>|<strong>)/i);
     if (matchEmenta) {
-      return decodificarEntities(
-        matchEmenta[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
-      );
+      return {
+        ementa: decodificarEntities(
+          matchEmenta[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
+        ),
+        data
+      };
     }
     // Fallback: campo Assunto (endpoint novo — Mauá, Itatiba, etc.)
     const matchAssunto = html.match(/Assunto:\s*<\/strong>\s*([\s\S]{5,500}?)(?=<\/p>|<strong>)/i)
       || html.match(/<strong>Assunto:<\/strong>([^<]{5,500})/i)
       || html.match(/<p[^>]*>\s*Assunto:\s*([^<]{10,400})/i);
     if (matchAssunto) {
-      return decodificarEntities(
-        matchAssunto[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
-      );
+      return {
+        ementa: decodificarEntities(
+          matchAssunto[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 400)
+        ),
+        data
+      };
     }
-    return '-';
+    return { ementa: '-', data };
   } catch {
-    return '-';
+    return { ementa: '-', data: null };
   }
+}
+
+// Compat alias
+async function buscarEmenta(url_base, id, grupoId, endpoint) {
+  return (await buscarEmentaEData(url_base, id, grupoId, endpoint)).ementa;
 }
 
 // Hook chamado pelo monitor.js apenas para itens novos
 async function enriquecerEmentas(itens) {
   for (const item of itens) {
     if (!item._id) continue;
-    item.ementa = await buscarEmenta(item._url_base, item._id, item._grupo_id, item._endpoint);
+    const resultado = await buscarEmentaEData(item._url_base, item._id, item._grupo_id, item._endpoint);
+    item.ementa = resultado.ementa;
+    if (item.data === '-' && resultado.data) item.data = resultado.data;
     await new Promise(r => setTimeout(r, 500));
   }
 }

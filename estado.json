@@ -15161,7 +15161,8 @@
       "paulínia-160854",
       "paulínia-160850",
       "paulínia-160891",
-      "paulínia-160818"
+      "paulínia-160818",
+      "paulínia-160892"
     ],
     "Itatiba": [
       "itatiba-200875",
@@ -15730,7 +15731,10 @@
       "piracicaba-471646",
       "piracicaba-471676",
       "piracicaba-471687",
-      "piracicaba-471675"
+      "piracicaba-471675",
+      "piracicaba-471688",
+      "piracicaba-471689",
+      "piracicaba-471709"
     ],
     "Sumaré": [
       "sumaré-196428",
@@ -17159,5 +17163,5 @@
       "mogi-das-cruzes-45883"
     ]
   },
-  "ultima_execucao": "2026-05-05T02:12:49.996Z"
+  "ultima_execucao": "2026-05-05T11:57:10.663Z"
 }
